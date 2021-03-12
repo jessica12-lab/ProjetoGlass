@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>
+        Tudo sobre Google Glass
+    </title>
+    <link rel="stylesheet" type="text/css" href="stile.css"/>
+    <link rel="stylesheet" type="text/css" href="form.css"/>
+</head>
+<script language="JavaScript" src = " _javascript/funcoes.js "> </script>
+<script>
+    function calc_total(){
+        var qtd = parseInt(document.getElementById('cQtd').value);
+        tot = qtd * 1500;
+        document.getElementById('cTot').value = tot;
+        
+    }
+    
+</script>
+<body>
+<div id="interface">
+
+    <header id="cabecalho">
+        <hgroup>
+            <h1>Google Glass </h1>
+            <h2>A revolução do Google está chegando</h2>
+        </hgroup>
+
+
+
+        <img id="icone" src=" imagens\contato.png " >
+        <nav id="menu">
+            <h1>Menu Principal</h1>
+            <ul>
+                <li onmouseover="mudaFoto('imagens/home.png')" onmouseout="mudaFoto('imagens/contato.png')"><a href="index-txt.html">Home</a></li>
+                <li onmouseover="mudaFoto('imagens/especificacoes.png')" onmouseout="mudaFoto('imagens/contato.png')"><a href="specs-txt.html">Especificações</a></li>
+                <li onmouseover="mudaFoto('imagens/fotos.png')" onmouseout="mudaFoto('imagens/contato.png')"><a href="fotos-txt.html">Fotos</a></li>
+                <li onmouseover="mudaFoto('imagens/multimidia.png')" onmouseout="mudaFoto('imagens/contato.png')"><a href="multimidia-txt.html">Multimídia</a></li>
+                <li onmouseover="mudaFoto('imagens/contato.png')" onmouseout="mudaFoto('imagens/contato.png')"><a href="fale-conosco-txt.html">Fale conosco</a></li>
+            </ul>
+        </nav>
+    </header>
+    <header id="cabecalho-artigo">
+        <hgroup>
+            <h3>Fale Conosco > Contato</h3>
+            <h1>Formulário de Contato</h1>
+            <h2>por Jessica Alves</h2>
+        </hgroup>
+    </header>
+
+
+<form method="post" id="fContato" action="mailto:nike_jessica@hotmail.com" oninput="calc_total(); ">
+    <fieldset id="usuario">
+        <legend>Identificação do Usuário</legend>
+        <p><label for="cNome">Nome:</label>  <input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo" required="required"></p>
+        <p><label for="cEmail">E-mail:</label> <input type="email" name="tEmail" id="cEmail" maxlength="30" size="20" placeholder="E-mail" required></p>
+        <p><label for="cSenha">Senha:</label>  <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 Dígitos" required></p>
+        <fieldset id="sexo">
+            <legend>Sexo:</legend>
+              <label for="cMas"><input type="radio" name="tSex" id="cMas" >Masculino</label> <br>
+              <label for="cFem">  <input type="radio" name="tSex" id="cFem">Feminino</label>
+        </fieldset>
+          <p> <label for="cData">Data de Nascimento:</label> <input type="date" name="tData" id="cData" required></p>
+         </fieldset>
+
+<fieldset id="endereco">
+    <legend>Endereço do Usuário</legend>
+    <p> <label for="cLog">Logradouro:</label> <input type="text" name="tLog" id="cLog" size="20" maxlength="30" placeholder="Av, Rua, Trav, etc." required></p>
+    <p> <label for="cNum">Número:</label> <input type="number" name="tNum" id="cNum" min="0" max="9999" size="4" required></p>    <p>  <label for="cEst">Estado:</label> <select name="tEst" id="cEst" >
+        <optgroup label="Região Sudeste">
+            <option value="RJ"> Rio de Janeiro</option>
+            <option value="SP" selected> São Paulo</option>
+            <option value="MG"> Minas Gerais</option>
+            <option value="ES"> Espírito Santo</option>
+        </optgroup>
+        <optgroup label="Região Sul">
+            <option value="PR"> Paraná</option>
+            <option value="SC"> Santa Catarina</option>
+        </optgroup>
+
+
+    </select></p>
+    <p> <label cCid>Cidade:</label> <input type="text" name="tCid" id="cCid" size="20" maxlength="40" placeholder="Cidade" list="cidade" required></p>
+    <datalist id="cidade" >
+        <option value="São Paulo"></option>
+        <option value="Adamantina"></option>
+        <option value="Americana"></option>
+        <option value="Campinas"></option>
+        <option value="Sorocaba"></option>
+        <option value="São Roque"></option>
+
+    </datalist>
+</fieldset>
+
+<fieldset id="mensagem">
+    <legend>Mensagem do Usuário</legend>
+    <p> <label for="cUrg">Grau de Urgência: Min<input type="range" name="tUrg" id="cUrg" min="0" maxlength="10" step="5">Max</label></p>
+    <p> <label for="cMsg">Mensagem: <textarea name="tMsg" id="cMsg" maxlength="500" cols="50" rows="4" placeholder="Deixe aqui sua mensagem"></textarea></label></p>
+
+</fieldset>
+
+<fieldset id="pedido">
+    <legend>Quero um Google Glass</legend>
+    <p> <label for="cPed" > <input type="checkbox" name="tPed" id="cPed" >Gostaria de adquirir um Google Glass </label></p>
+    <p> <label for="cCor">Cor: <input type="color" name="tCor" id="cCor" value="#ffffff" required></label></p>
+    <p> <label for="cQtd">Quantidade: <input type="number" name="tQtd" id="cQtd" min="0" max="10" required></label></p>
+    <p> <label for="cTot">Preço Total: R$<input type="text" name="tTot" id="cTot" size="4" readonly  ></label></p>
+</fieldset>
+<input type="image" src="imagens/botao-enviar.png" name="tEnviar" id="cEnviar" >
+</form>
+
+<footer id="rodape">
+    <p>Copyright &copy; 2013 - by Jessica Amaral<br>
+        <a href="https://www.facebook.com/jessica.camila.3597" target="_blank">Facebook</a> | <a href="https://www.instagram.com/jessicamila1789/?hl=pt-br" target="_blank">Instagram</a> </p>
+</footer>
+</div>
+</body>
+</html>
